@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaterm - Open source AI native terminal and SRE Copilot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .title-section h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .stars {
+            color: #f59e0b;
+            letter-spacing: 1px;
+        }
+
+        .rating-score {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .visit-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fef3c7;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .visit-btn:hover {
+            background: #fde68a;
+        }
+
+        .visit-btn svg {
+            width: 20px;
+            height: 20px;
+            color: #f59e0b;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tags svg {
+            width: 16px;
+            height: 16px;
+            color: #999;
+        }
+
+        .tag-separator {
+            color: #ccc;
+        }
+
+        /* Description */
+        .description {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .see-more {
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin: 24px 0;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 12px 16px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-tab.active {
+            color: #1a1a1a;
+            font-weight: 500;
+            border-bottom-color: #1a1a1a;
+        }
+
+        .nav-tab:hover {
+            color: #1a1a1a;
+        }
+
+        .tab-count {
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Feature Cards */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .feature-card {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+        }
+
+        .feature-card-1 {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+        }
+
+        .feature-card-2 {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+        }
+
+        .card-content {
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .card-title em {
+            font-style: italic;
+        }
+
+        .card-subtitle {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .card-image {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Placeholder for skill store */
+        .skill-store-preview {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #fef9f3 0%, #fff 100%);
+            padding: 12px;
+            font-size: 10px;
+        }
+
+        .store-header {
+            background: #f97316;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px 8px 0 0;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .store-content {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 8px;
+        }
+
+        .store-item {
+            width: 60px;
+            height: 50px;
+            background: linear-gradient(135deg, #86efac 0%, #34d399 100%);
+            border-radius: 6px;
+            margin: 0 auto;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .icon-item {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        /* Agent preview */
+        .agent-preview {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            background: #f8fafc;
+        }
+
+        .phone-frame {
+            width: 45%;
+            background: #fff;
+            border-radius: 12px;
+            border: 2px solid #e5e5e5;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-header {
+            background: #1e40af;
+            color: white;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 8px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .phone-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .map-placeholder {
+            flex: 1;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .map-marker {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #ef4444;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .list-item {
+            height: 16px;
+            background: #f3f4f6;
+            border-radius: 4px;
+        }
+
+        .tablet-frame {
+            width: 55%;
+            background: #fff;
+            border-radius: 12px;
+            border: 2px solid #e5e5e5;
+            padding: 8px;
+        }
+
+        .tablet-header {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+
+        .tab-item {
+            padding: 4px 8px;
+            background: #f3f4f6;
+            border-radius: 4px;
+            font-size: 7px;
+        }
+
+        .tab-item.active {
+            background: #dbeafe;
+        }
+
+        .spreadsheet {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+        }
+
+        .cell {
+            height: 12px;
+            background: #f9fafb;
+            border: 1px solid #e5e5e5;
+        }
+
+        .cell.header {
+            background: #e5e7eb;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                gap: 4px;
+            }
+
+            .nav-tab {
+                padding: 12px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e8/38/65/e83865da-71b4-713f-af37-28df81169312/Placeholder.mill/200x200bb-75.webp" alt="Chaterm Logo">
+            </div>
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="title-section">
+                        <h1>Chaterm</h1>
+                        <p class="tagline">Open source AI native terminal and SRE Copilot</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-score">4.8</span>
+                            <span>·</span>
+                            <span>36 reviews</span>
+                            <span>·</span>
+                            <span>5.9K followers</span>
+                        </div>
+                    </div>
+                    <button class="visit-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Visit website
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="tags">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+            </svg>
+            <span>AI Workflow Automation</span>
+            <span class="tag-separator">·</span>
+            <span>DevOps and SRE Engineer</span>
+            <span class="tag-separator">·</span>
+            <span>OpenClaw</span>
+        </div>
+
+        <!-- Description -->
+        <p class="description">
+            An AI-native terminal that reimagines the command through natural language — like Cursor, but for infra and the cloud.
+            <br>
+            OpenClaw for managing cloud infrastructure and online services — with security you can control.
+        </p>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <div class="nav-tab active">Overview</div>
+            <div class="nav-tab">Launches <span class="tab-count">7</span></div>
+            <div class="nav-tab">Reviews <span class="tab-count">36</span></div>
+            <div class="nav-tab">Alternatives</div>
+            <div class="nav-tab">Customers</div>
+            <div class="nav-tab">Built with</div>
+            <div class="nav-tab">Forum</div>
+            <div class="nav-tab">More</div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="feature-cards">
+            <div class="feature-card feature-card-1">
+                <div class="card-content">
+                    <h3 class="card-title">Run your infrastructure in minutes</h3>
+                    <div class="card-image" style="margin-top: 12px; background: transparent; box-shadow: none;">
+                        <img src="https://chaterm.ai/images/hero-dark.webp" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-card feature-card-2">
+                <div class="card-content">
+                    <h3 class="card-title">Agent Skills instead of commands</h3>
+                    <div class="card-image">
+                        <img src="agent.gif" alt="Agent Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
