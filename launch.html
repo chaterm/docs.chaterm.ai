@@ -187,12 +187,27 @@
             color: #666;
         }
 
-        /* Feature Cards */
-        .feature-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+        /* Feature Cards Carousel */
+        .carousel-container {
+            position: relative;
             margin-top: 24px;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 50%;
+            padding: 0 12px;
+            box-sizing: border-box;
         }
 
         .feature-card {
@@ -200,13 +215,6 @@
             overflow: hidden;
             aspect-ratio: 4/3;
             position: relative;
-        }
-
-        .feature-card-1 {
-            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-        }
-
-        .feature-card-2 {
             background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
         }
 
@@ -244,12 +252,89 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
 
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e5e5e5;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #333;
+            transition: all 0.2s;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .carousel-nav:hover {
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .carousel-nav:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-prev {
+            left: -24px;
+        }
+
+        .carousel-next {
+            right: -24px;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .carousel-indicator.active {
+            background: #1a1a1a;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .carousel-indicator:hover {
+            background: #9ca3af;
+        }
+
+        .carousel-indicator.active:hover {
+            background: #1a1a1a;
         }
 
         /* Placeholder for skill store */
@@ -413,6 +498,151 @@
             background: #e5e7eb;
         }
 
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            padding: 8px;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: #ccc;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 16px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+
+        /* Maker Comment Section */
+        .maker-comment {
+            margin-top: 40px;
+            padding: 24px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 16px;
+        }
+
+        .maker-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .maker-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .maker-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .maker-info {
+            flex: 1;
+        }
+
+        .maker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .maker-badge {
+            background: #f97316;
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .maker-title {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .maker-comment-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .maker-comment-text p {
+            margin-bottom: 12px;
+        }
+
+        .maker-comment-text p:last-child {
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -423,8 +653,26 @@
                 gap: 16px;
             }
 
-            .feature-cards {
-                grid-template-columns: 1fr;
+            .carousel-slide {
+                min-width: 100%;
+            }
+
+            .carousel-prev {
+                left: 8px;
+            }
+
+            .carousel-next {
+                right: 8px;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .lightbox-nav {
+                display: none;
             }
 
             .nav-tabs {
@@ -501,25 +749,173 @@
             <div class="nav-tab">More</div>
         </div>
 
-        <!-- Feature Cards -->
-        <div class="feature-cards">
-            <div class="feature-card feature-card-1">
-                <div class="card-content">
-                    <h3 class="card-title">Run your infrastructure in minutes</h3>
-                    <div class="card-image" style="margin-top: 12px; background: transparent; box-shadow: none;">
-                        <img src="https://chaterm.ai/images/hero-dark.webp" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain;">
+        <!-- Feature Cards Carousel -->
+        <div class="carousel-container">
+            <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <div class="feature-card">
+                            <div class="card-content">
+                                <h3 class="card-title">Run your infrastructure in minutes</h3>
+                                <div class="card-image" style="margin-top: 12px; background: transparent; box-shadow: none;" onclick="openLightbox(0)">
+                                    <img src="https://chaterm.ai/images/hero-dark.webp" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="feature-card">
+                            <div class="card-content">
+                                <h3 class="card-title">Agent Skills instead of commands</h3>
+                                <div class="card-image" onclick="openLightbox(1)">
+                                    <img src="agent.gif" alt="Agent Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 (duplicate of Slide 1) -->
+                    <div class="carousel-slide">
+                        <div class="feature-card">
+                            <div class="card-content">
+                                <h3 class="card-title">Run your infrastructure in minutes</h3>
+                                <div class="card-image" style="margin-top: 12px; background: transparent; box-shadow: none;" onclick="openLightbox(0)">
+                                    <img src="https://chaterm.ai/images/hero-dark.webp" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 (duplicate of Slide 2) -->
+                    <div class="carousel-slide">
+                        <div class="feature-card">
+                            <div class="card-content">
+                                <h3 class="card-title">Agent Skills instead of commands</h3>
+                                <div class="card-image" onclick="openLightbox(1)">
+                                    <img src="agent.gif" alt="Agent Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="feature-card feature-card-2">
-                <div class="card-content">
-                    <h3 class="card-title">Agent Skills instead of commands</h3>
-                    <div class="card-image">
-                        <img src="agent.gif" alt="Agent Demo" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+            <button class="carousel-nav carousel-next" onclick="moveCarousel(1)">&#10095;</button>
+
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+            </div>
+        </div>
+
+        <!-- Maker Comment -->
+        <div class="maker-comment">
+            <div class="maker-header">
+                <div class="maker-avatar">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e8/38/65/e83865da-71b4-713f-af37-28df81169312/Placeholder.mill/200x200bb-75.webp" alt="Maker Avatar">
                 </div>
+                <div class="maker-info">
+                    <div class="maker-name">
+                        Chaterm Team
+                        <span class="maker-badge">MAKER</span>
+                    </div>
+                    <div class="maker-title">Founder & Developer</div>
+                </div>
+            </div>
+            <div class="maker-comment-text">
+                <p>Hey Product Hunt! 👋</p>
+                <p>We're thrilled to launch Chaterm - an AI-native terminal designed to revolutionize how engineers interact with cloud infrastructure. After spending countless hours debugging, deploying, and managing servers, we realized there had to be a better way.</p>
+                <p>Chaterm lets you use natural language to perform complex operations. No more memorizing commands or searching through documentation. Just describe what you want to do, and Chaterm handles the rest.</p>
+                <p>We'd love to hear your feedback! Try it out and let us know what you think. 🚀</p>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+            <div class="lightbox-content" onclick="event.stopPropagation()">
+                <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+                <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#10094;</button>
+                <img id="lightbox-img" src="" alt="Preview">
+                <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#10095;</button>
             </div>
         </div>
     </div>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const slidesPerView = window.innerWidth <= 768 ? 1 : 2;
+        const maxSlide = totalSlides - slidesPerView;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const slideWidth = window.innerWidth <= 768 ? 100 : 50;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+
+            // Update indicators
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveCarousel(direction) {
+            const slidesPerView = window.innerWidth <= 768 ? 1 : 2;
+            const maxSlide = totalSlides - slidesPerView;
+            currentSlide = Math.max(0, Math.min(currentSlide + direction, maxSlide));
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const slidesPerView = window.innerWidth <= 768 ? 1 : 2;
+            const maxSlide = totalSlides - slidesPerView;
+            if (currentSlide > maxSlide) {
+                currentSlide = maxSlide;
+            }
+            updateCarousel();
+        });
+
+        // Lightbox functionality
+        const featureImages = [
+            'https://chaterm.ai/images/hero-dark.webp',
+            'agent.gif'
+        ];
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = featureImages[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event && event.target !== document.getElementById('lightbox')) return;
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex = (currentIndex + direction + featureImages.length) % featureImages.length;
+            document.getElementById('lightbox-img').src = featureImages[currentIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+    </script>
 </body>
 </html>
