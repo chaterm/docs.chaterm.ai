@@ -733,8 +733,12 @@
 
         <!-- Description -->
         <p class="description">
-			Chaterm is an AI-powered smart terminal designed specifically for infrastructure and cloud resource management. It enables complex tasks such as service deployment, troubleshooting, and fault repair using only natural language.
-			Chaterm can learn team knowledge and user habits, helping engineers efficiently complete their daily work through reusable agent skills.
+			Chaterm is an AI native terminal built for infrastructure and cloud resource management.  It enables complex tasks such as service deployment, troubleshooting, and problems resolving using only natural language. Chaterm learns from team knowledge and user habits, enabling engineers to complete daily tasks more efficiently through reusable agent skills.
+			<br><br>
+			图1: 表达Chaterm支持多云连接，Agent自主规划解决问题的能力<br>
+			图2: 表达Chaterm能够从用户对话，技术手册、内部文档、脚本和白皮书学习形成知识库的能力<br>
+			图3: 表达Chaterm支持Agent SKill，能够复用技能，将资深工程师的经验转化为可执行的能力<br>
+			图4: 表达Chaterm移动端应急响应的能力（可选）
         </p>
 
         <!-- Navigation Tabs -->
@@ -756,44 +760,40 @@
                 <div class="carousel-track" id="carouselTrack">
                     <!-- Slide 1 -->
                     <div class="carousel-slide">
-                        <div class="feature-card">
-                            <div class="card-content">
-                                <h3 class="card-title">Run your infrastructure in minutes</h3>
-                                <div class="card-image" style="margin-top: 12px; background: transparent; box-shadow: none;" onclick="openLightbox(0)">
-                                    <img src="https://chaterm.ai/images/hero-dark.webp" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain;">
+                        <div class="feature-card" style="background: none;">
+                            <div class="card-content" style="padding: 0;">
+                                <div class="card-image" style="margin: 0; background: transparent; box-shadow: none; border-radius: 16px; width: 100%; height: 100%;" onclick="openLightbox(0)">
+                                    <img src="hero1.jpg" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-slide">
-                        <div class="feature-card">
-                            <div class="card-content">
-                                <h3 class="card-title">Agent Skills instead of commands</h3>
-                                <div class="card-image" onclick="openLightbox(1)">
-                                    <img src="agent.gif" alt="Agent Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="feature-card" style="background: none;">
+                            <div class="card-content" style="padding: 0;">
+                                <div class="card-image" style="margin: 0; background: transparent; box-shadow: none; border-radius: 16px; width: 100%; height: 100%;" onclick="openLightbox(1)">
+                                    <img src="hero2.jpg" alt="Chaterm Hero 2" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Slide 3 (duplicate of Slide 1) -->
+                    <!-- Slide 3 -->
                     <div class="carousel-slide">
-                        <div class="feature-card">
-                            <div class="card-content">
-                                <h3 class="card-title">Run your infrastructure in minutes</h3>
-                                <div class="card-image" style="margin-top: 12px; background: transparent; box-shadow: none;" onclick="openLightbox(0)">
-                                    <img src="https://chaterm.ai/images/hero-dark.webp" alt="Chaterm Hero" style="width: 100%; height: 100%; object-fit: contain;">
+                        <div class="feature-card" style="background: none;">
+                            <div class="card-content" style="padding: 0;">
+                                <div class="card-image" style="margin: 0; background: transparent; box-shadow: none; border-radius: 16px; width: 100%; height: 100%;" onclick="openLightbox(2)">
+                                    <img src="hero3.jpg" alt="Chaterm Hero 3" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Slide 4 (duplicate of Slide 2) -->
+                    <!-- Slide 4 -->
                     <div class="carousel-slide">
-                        <div class="feature-card">
-                            <div class="card-content">
-                                <h3 class="card-title">Agent Skills instead of commands</h3>
-                                <div class="card-image" onclick="openLightbox(1)">
-                                    <img src="agent.gif" alt="Agent Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="feature-card" style="background: none;">
+                            <div class="card-content" style="padding: 0;">
+                                <div class="card-image" style="margin: 0; background: transparent; box-shadow: none; border-radius: 16px; width: 100%; height: 100%;" onclick="openLightbox(3)">
+                                    <img src="hero4.jpg" alt="Chaterm Hero 4" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
                                 </div>
                             </div>
                         </div>
@@ -806,7 +806,7 @@
             <div class="carousel-indicators">
                 <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
                 <div class="carousel-indicator" onclick="goToSlide(1)"></div>
-                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>		
             </div>
         </div>
 
@@ -886,8 +886,10 @@
 
         // Lightbox functionality
         const featureImages = [
-            'https://chaterm.ai/images/hero-dark.webp',
-            'agent.gif'
+            'hero1.jpg',
+            'hero2.jpg',
+            'hero3.jpg',
+            'hero4.jpg'
         ];
         let currentIndex = 0;
 
