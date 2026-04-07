@@ -792,6 +792,26 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-slide">
+                        <div class="feature-card" style="background: none;">
+                            <div class="card-content" style="padding: 0;">
+                                <div class="card-image" style="margin: 0; background: transparent; box-shadow: none; border-radius: 16px; width: 100%; height: 100%;" onclick="openLightbox(4)">
+                                    <img src="hero5.webp" alt="Chaterm Hero 5" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="carousel-slide">
+                        <div class="feature-card" style="background: none;">
+                            <div class="card-content" style="padding: 0;">
+                                <div class="card-image" style="margin: 0; background: transparent; box-shadow: none; border-radius: 16px; width: 100%; height: 100%;" onclick="openLightbox(5)">
+                                    <img src="hero6.webp" alt="Chaterm Hero 6" style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="carousel-nav carousel-next" onclick="moveCarousel(1)">&#10095;</button>
@@ -800,7 +820,9 @@
             <div class="carousel-indicators">
                 <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
                 <div class="carousel-indicator" onclick="goToSlide(1)"></div>
-                <div class="carousel-indicator" onclick="goToSlide(2)"></div>		
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(4)"></div>
             </div>
         </div>
 
@@ -849,7 +871,7 @@ questions and discuss ideas.</p>
     <script>
         // Carousel functionality
         let currentSlide = 0;
-        const totalSlides = 4;
+        const totalSlides = 6;
         const slidesPerView = window.innerWidth <= 768 ? 1 : 2;
         const maxSlide = totalSlides - slidesPerView;
 
@@ -892,7 +914,9 @@ questions and discuss ideas.</p>
             'hero1.webp',
             'hero2.webp',
             'hero3.webp',
-            'hero4.webp'
+            'hero4.webp',
+            'hero5.webp',
+            'hero6.webp'
         ];
         let currentIndex = 0;
 
