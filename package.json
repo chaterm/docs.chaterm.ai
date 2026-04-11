@@ -1,0 +1,49 @@
+{
+  "name": "vitepress-blogs-theme-template",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "lint:eslint": "eslint . --ext .ts,.js,.vue --fix",
+    "postinstall": "patch-package",
+    "prepare": "husky install"
+  },
+  "author": "chunge16 (https://github.com/chunge16)",
+  "license": "MIT",
+  "homepage": "https://chunge16.github.io/vitepress-blogs-theme-template/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chunge16/vitepress-blogs-theme-template.git"
+  },
+  "devDependencies": {
+    "@chunge16/vitepress-blogs-theme": "github:jarvishappy/vitepress-blogs-theme",
+    "eslint": "^8.48.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
+    "patch-package": "^8.0.1",
+    "vitepress": "^1.6.4",
+    "vue": "^3.3.4",
+    "vue-eslint-parser": "^9.3.1"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "lint-staged": {
+    "*.{cjs,js,ts,vue}": [
+      "npm run lint:eslint"
+    ]
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "search-insights"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+html.dark .custom-home-page {
+  background-color: #030419;
+}
+
+.custom-home-page .VPNav {
+  opacity: 0.8;
+}
+
+html.dark .custom-home-page .VPFooter {
+  background: #030419;
+}
+
+.custom-home-page .VPContent.is-home {
+  position: relative;
+}
+
+.custom-home-page .VPContent.is-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/bg-light.webp");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: min(100vw, 1920px) auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.custom-home-page .VPContent.is-home>* {
+  position: relative;
+  z-index: 1;
+}
+
+html.dark .custom-home-page .VPContent.is-home::before {
+  background-image: url("/images/bg-dark.webp");
+}
+
+@media (max-width: 960px) {
+  .custom-home-page .VPNav {
+    opacity: 1;
+    background: linear-gradient(45deg, #ECF1FF 0%, #D5DFFE 100%);
+  }
+
+  html.dark .custom-home-page .VPNav {
+    background: #0A0B1C;
+  }
+}
+
+@media (min-width: 1441px) {
+  .custom-home-page .VPContent.is-home::before {
+    background-size: max(100vw, 1920px) 1440px;
+  }
+}

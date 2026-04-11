@@ -1,0 +1,826 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ * -------------------------------------------------------------------------- */
+
+ :root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-lightest: #bcc0ff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-darker: #454ce1;
+  --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: var(--vp-c-brand-light);
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #bd34fe 30%,
+    #41d1ff
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #bd34fe 50%,
+    #47caff 50%
+  );
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+.dark {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand) !important;
+}
+
+/**
+ * About Page Custom Styles
+ * -------------------------------------------------------------------------- */
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--vp-c-brand-dimm) 0%, transparent 100%);
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-brand-light);
+}
+
+.hero-logo {
+  max-width: 60px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Version Info */
+.version-info {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.version-info strong {
+  color: var(--vp-c-brand);
+  font-size: 1.2em;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-item {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--vp-c-brand-light);
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 2em;
+  color: var(--vp-c-brand);
+  margin-top: 0.5rem;
+}
+
+/* Footer Note */
+.footer-note {
+  text-align: center;
+  padding: 2rem;
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  margin-top: 2rem;
+  border: 1px solid var(--vp-c-border);
+}
+
+.footer-note a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.footer-note a:hover {
+  background: var(--vp-c-brand-dimm);
+  text-decoration: underline;
+}
+
+/* Enhanced Custom Blocks */
+.custom-block.tip {
+  border-left: 4px solid var(--vp-c-brand);
+  background: var(--vp-c-brand-dimm);
+}
+
+.custom-block.info {
+  border-left: 4px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.custom-block.warning {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+/* Table Enhancements */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--vp-c-border);
+}
+
+table th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+table tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-item {
+    padding: 1rem;
+  }
+  
+  .footer-note a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-logo {
+    max-width: 50px;
+  }
+}
+
+/**
+ * Account Management Page Styles
+ * -------------------------------------------------------------------------- */
+
+/* Account Management Hero Section */
+.account-hero {
+  background: linear-gradient(135deg, var(--vp-c-brand-dimm) 0%, rgba(100, 108, 255, 0.05) 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--vp-c-brand-light);
+  text-align: center;
+}
+
+.account-hero h1 {
+  color: var(--vp-c-brand);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.account-hero p {
+  color: var(--vp-c-text-2);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Registration Methods Grid */
+.registration-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.registration-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vp-c-brand), var(--vp-c-brand-light));
+}
+
+.registration-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(100, 108, 255, 0.15);
+  border-color: var(--vp-c-brand-light);
+}
+
+.registration-card h3 {
+  color: var(--vp-c-brand);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.registration-card p {
+  color: var(--vp-c-text-2);
+  margin-bottom: 1rem;
+}
+
+.registration-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.platform-tag {
+  background: var(--vp-c-brand-dimm);
+  color: var(--vp-c-brand-darker);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--vp-c-brand-light);
+  transition: all 0.3s ease;
+}
+
+.platform-tag:hover {
+  background: var(--vp-c-brand);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Account Settings Section */
+.account-settings {
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid var(--vp-c-border);
+}
+
+.account-settings h2 {
+  color: var(--vp-c-brand);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.settings-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.setting-item {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.setting-item:hover {
+  border-color: var(--vp-c-brand-light);
+  background: var(--vp-c-brand-dimm);
+}
+
+.setting-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--vp-c-brand);
+  flex-shrink: 0;
+}
+
+.setting-text {
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+
+/* Security Detection Section */
+.security-detection {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.security-detection h2 {
+  color: #f59e0b;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.detection-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.detection-item {
+  background: var(--vp-c-bg);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.detection-item:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: #f59e0b;
+}
+
+.detection-item strong {
+  color: #f59e0b;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.security-process {
+  background: var(--vp-c-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border: 1px solid var(--vp-c-border);
+}
+
+.security-process h3 {
+  color: var(--vp-c-text-1);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.security-process ol {
+  color: var(--vp-c-text-2);
+  padding-left: 1.5rem;
+}
+
+.security-process li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Enhanced Custom Blocks for Account Management */
+.custom-block.tip.account-tip {
+  border-left: 4px solid var(--vp-c-brand);
+  background: var(--vp-c-brand-dimm);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.custom-block.warning.account-warning {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Responsive Design for Account Management */
+@media (max-width: 768px) {
+  .account-hero {
+    padding: 1.5rem;
+  }
+  
+  .account-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .registration-methods {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .detection-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .account-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .detection-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .registration-card,
+  .account-settings,
+  .security-detection {
+    padding: 1rem;
+  }
+}
+
+/**
+ * Profile Page Custom Styles
+ * -------------------------------------------------------------------------- */
+
+/* Profile Hero Section */
+.profile-hero {
+  background: linear-gradient(135deg, var(--vp-c-brand-dimm) 0%, rgba(100, 108, 255, 0.05) 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid var(--vp-c-brand-light);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23646cff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23646cff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23646cff" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="%23646cff" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="%23646cff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.profile-hero h1 {
+  color: var(--vp-c-brand);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-hero p {
+  color: var(--vp-c-text-2);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Account Overview Section */
+.account-overview {
+  margin: 3rem 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.info-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vp-c-brand), var(--vp-c-brand-light));
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(100, 108, 255, 0.15);
+  border-color: var(--vp-c-brand-light);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.info-card h3 {
+  color: var(--vp-c-brand);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-card li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--vp-c-border);
+  color: var(--vp-c-text-1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-card li:last-child {
+  border-bottom: none;
+}
+
+.info-card li strong {
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+  min-width: 80px;
+}
+
+/* Subscription Level Badges */
+.subscription-level {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.level-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.level-badge.free {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  color: white;
+}
+
+.level-badge.lite {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+}
+
+.level-badge.pro {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+}
+
+.level-badge.max {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: white;
+}
+
+.level-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Features Section */
+.features-section {
+  margin: 4rem 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.feature-item {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, var(--vp-c-brand-dimm) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-item:hover::before {
+  opacity: 1;
+}
+
+.feature-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(100, 108, 255, 0.2);
+  border-color: var(--vp-c-brand-light);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-item h4 {
+  color: var(--vp-c-brand);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-item p {
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced Custom Blocks for Profile */
+.custom-block.tip.profile-tip {
+  border-left: 4px solid var(--vp-c-brand);
+  background: var(--vp-c-brand-dimm);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid var(--vp-c-brand-light);
+}
+
+.custom-block.warning.profile-warning {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Responsive Design for Profile Page */
+@media (max-width: 768px) {
+  .profile-hero {
+    padding: 2rem 1.5rem;
+  }
+  
+  .profile-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .info-card,
+  .feature-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .profile-hero p {
+    font-size: 1rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .subscription-level {
+    justify-content: center;
+  }
+  
+  .level-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
